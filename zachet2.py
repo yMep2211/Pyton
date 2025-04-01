@@ -144,7 +144,7 @@ class MultiFunctionApp(QMainWindow):
         self.slider.valueChanged.connect(self.progress_bar.setValue)
         layout.addWidget(progress_group)
         '''
-        progress_group = self.create_styled_group("Прогресс-бар (баг)", "#ebffe6")
+        progress_group = self.create_styled_group("Прогресс-бар", "#ebffe6")
         self.slider = QSlider(Qt.Orientation.Horizontal)
         self.slider.setRange(0, 100)
         self.progress_bar = QProgressBar()
@@ -155,8 +155,8 @@ class MultiFunctionApp(QMainWindow):
         
         # 9. Радио кнопки (светло-жёлтая группа)
         radio_group = self.create_styled_group("Выбор варианта", "#fffae6")
-        self.radio1 = QRadioButton("Вариант A")
-        self.radio2 = QRadioButton("Вариант B")
+        self.radio1 = QRadioButton("Вариант 1")
+        self.radio2 = QRadioButton("Вариант 2")
         radio_group.layout().addWidget(self.radio1)
         radio_group.layout().addWidget(self.radio2)
         self.btn_show_radio = QPushButton("Показать выбор")
@@ -275,10 +275,10 @@ class MultiFunctionApp(QMainWindow):
         self.progress_bar.setValue(value)
     
     def show_message(self):
-        QMessageBox.information(self, "Сообщение", "Это тестовое сообщение!")
+        QMessageBox.information(self, "Сообщение", "Это окно сообщения!")
     
     def change_label_text(self):
-        self.label.setText("Текст изменён!")
+        self.label.setText("Текст изменился!")
     
     def show_input_text(self):
         text = self.line_edit.text()
@@ -307,7 +307,7 @@ class MultiFunctionApp(QMainWindow):
     
     def show_radio_selection(self):
         if self.radio1.isChecked():
-            text = "Вариант A"
+            text = "Вариант 1"
             # БАГ: При выборе варианта B ничего не показывается
             QMessageBox.information(self, "Выбор", f"Выбрано: {text}")
             # Правильная реализация должна быть:
